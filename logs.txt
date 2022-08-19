@@ -1,0 +1,13 @@
+2022-08-19 19:44:05.202599	Main function starts executing
+2022-08-19 19:44:05.202860	Reading dataset starts.
+2022-08-19 19:44:09.262647	Reading dataset ends.
+2022-08-19 19:44:09.293334	Creating a object of TfidfVectorizer with stopwords starts.
+2022-08-19 19:44:09.294175	Creating a object of TfidfVectorizer with stopwords ends.
+2022-08-19 19:44:09.294748	Running vectorizer.fit starts.
+2022-08-19 19:44:43.022415	Running vectorizer.fit ends.
+2022-08-19 19:44:43.023735	Running vectorizer.transform starts.
+2022-08-19 19:45:09.800032	Running vectorizer.transform ends.
+2022-08-19 19:45:09.800983	Running cosine_similarity starts.
+2022-08-19 19:45:50.004305	Running cosine_similarity ends.
+2022-08-19 19:45:50.206653	Main function ends executing
+
