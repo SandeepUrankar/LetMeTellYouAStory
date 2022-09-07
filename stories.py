@@ -9,6 +9,8 @@ from flask import Flask
 # Global Variables
 global stories
 stories = dict()
+global recos
+recos = dict()
 global categories 
 categories = set()
 global app
@@ -18,6 +20,9 @@ def load_data():
     with open('files/saved_stories.pkl', 'rb') as f:
         global stories 
         stories = pickle.load(f)
+    with open('files/saved_recomendations.pkl', 'rb') as f:
+        global recos 
+        recos = pickle.load(f)
     for i in stories.keys():
         global categories
         categories.add(stories[i]['Category'])
@@ -26,8 +31,12 @@ def load_data():
 
 @app.route("/<bookno>")
 def display_web(bookno):
-    css = 'https://raw.githubusercontent.com/SandeepUrankar/LetMeTellYouAStory/1cdb74e1e30b83847e633b6e5917fbf1ad3f9137/files/style.css?token=GHSAT0AAAAAABXMKESAY6VSIENHRM4WPEDGYYY4LQQ'
-    return f'<html> <head><link rel="stylesheet" href="{css}"> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p></body> </html>"
+    html =  '<html> <head><style>{margin: 0;}#title{text-align: center;font-size: 2rem;padding: 1rem;}#story{text-align: center;}</style> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p><br><p>Recomended to read</p>"#</body> </html>"
+    for reco in recos[bookno]:
+        link = f'http://127.0.0.1:5000/{reco}'
+        html += f'<a href={link}>'+stories[reco]['Title']+'</a><br>'
+    return html
+
 
 def display_story(category):
     titles = []
