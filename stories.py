@@ -1,16 +1,18 @@
 # Import Statements
 import html
 import pickle
+from readline import append_history_file
 import time
 import webbrowser
-
+from flask import Flask
 
 # Global Variables
 global stories
 stories = dict()
 global categories 
 categories = set()
-
+global app
+app = Flask(__name__)
 
 def load_data():
     with open('files/saved_stories.pkl', 'rb') as f:
@@ -21,6 +23,10 @@ def load_data():
         categories.add(stories[i]['Category'])
     categories = list(categories)
 
+
+@app.route("/<bookno>")
+def display_web(bookno):
+    return '<html> <head><link rel="stylesheet" href="/home/sandeep/Desktop/Link to KLETECH/Knit internship/LetMeTellYouAStory/files/style.css"> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p></body> </html>"
 
 def display_story(category):
     titles = []
@@ -47,15 +53,18 @@ def display_story(category):
     #     print(line,end='')
     #     input()
     #     # time.sleep(0.5)
-    
-    html_content = "<html> <head> <title> Story </title> <body>"+ (stories[bookno]['content']).replace('\n','<br>')+ "</body> </html>"
+    print(bookno)
+    webbrowser.open_new_tab(f'http://127.0.0.1:5000/{bookno}')
+    app.run()
 
-    html_content.format(stories[bookno]['content'])
+    # html_content = '<html> <head><link rel="stylesheet" href="style.css"> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p></body> </html>"
 
-    with open('files/index.html','w') as html_file:
-        html_file.write(html_content)
-        print('Opening Story in browser.')
-    webbrowser.open_new_tab('files/index.html')
+    # html_content.format(stories[bookno]['content'])
+
+    # with open('files/index.html','w') as html_file:
+    #     html_file.write(html_content)
+    #     print('Opening Story in browser.')
+    # webbrowser.open_new_tab('files/index.html')
 
 
 def main():

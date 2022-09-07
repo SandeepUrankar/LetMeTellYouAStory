@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+}
+
+#title{
+    align-content: center;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+#story{
+    align-content: center;
+}
+
