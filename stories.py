@@ -26,7 +26,8 @@ def load_data():
 
 @app.route("/<bookno>")
 def display_web(bookno):
-    return '<html> <head><link rel="stylesheet" href="/home/sandeep/Desktop/Link to KLETECH/Knit internship/LetMeTellYouAStory/files/style.css"> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p></body> </html>"
+    css = 'https://raw.githubusercontent.com/SandeepUrankar/LetMeTellYouAStory/1cdb74e1e30b83847e633b6e5917fbf1ad3f9137/files/style.css?token=GHSAT0AAAAAABXMKESAY6VSIENHRM4WPEDGYYY4LQQ'
+    return f'<html> <head><link rel="stylesheet" href="{css}"> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p></body> </html>"
 
 def display_story(category):
     titles = []
