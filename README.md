@@ -72,3 +72,11 @@ Choose a story -
 ```
 ctrl + c
 ```
+
+
+
+#### Thanks to  [Readnet by Shubchat](https://github.com/shubchat/Readnet)
+
+
+### Suggestions/Improvements -
+- Create an [issue](https://github.com/SandeepUrankar/LetMeTellYouAStory/issues/new/choose) and let me know, Thanks.
