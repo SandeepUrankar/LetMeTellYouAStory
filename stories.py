@@ -16,6 +16,8 @@ categories = set()
 global app
 app = Flask(__name__)
 
+
+# This function loads the stories and their recommendations into the dict DS
 def load_data():
     with open('files/saved_stories.pkl', 'rb') as f:
         global stories 
@@ -29,6 +31,9 @@ def load_data():
     categories = list(categories)
 
 
+# When http://127.0.0.1:5000/{reco} is opened in the browser while the flask
+# server is turned on, the argument will be passed to this function and the
+# stories requested is displayed.
 @app.route("/<bookno>")
 def display_web(bookno):
     html =  '<html> <head><style>{margin: 0;}#title{text-align: center;font-size: 2rem;padding: 1rem;}#story{text-align: center;}</style> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p><br><p>Recomended to read</p>"#</body> </html>"
@@ -38,6 +43,9 @@ def display_web(bookno):
     return html
 
 
+# This method displays the category of stories and let the user to pick the
+# category and displays different stories present in that category and the 
+# chosen story is displayed in the browser.
 def display_story(category):
     titles = []
     for i in stories.keys():
@@ -77,6 +85,7 @@ def display_story(category):
     # webbrowser.open_new_tab('files/index.html')
 
 
+# Main functions
 def main():
     load_data()
     print('Choose the category of story which you want to read...')
