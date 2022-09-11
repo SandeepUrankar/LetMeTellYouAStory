@@ -1,8 +1,6 @@
 # Import Statements
-import html
+import datetime
 import pickle
-from readline import append_history_file
-import time
 import webbrowser
 from flask import Flask
 
@@ -17,8 +15,16 @@ global app
 app = Flask(__name__)
 
 
+# Function to create logs.
+def create_log(data):
+    global log
+    log = open("logs.txt", "a")
+    log.write(str(datetime.datetime.now()) + "\t" + data + "\n")
+
+
 # This function loads the stories and their recommendations into the dict DS
 def load_data():
+    create_log('Loading the data.')
     with open('files/saved_stories.pkl', 'rb') as f:
         global stories 
         stories = pickle.load(f)
@@ -29,6 +35,8 @@ def load_data():
         global categories
         categories.add(stories[i]['Category'])
     categories = list(categories)
+    create_log('Done loading the data.')
+
 
 
 # When http://127.0.0.1:5000/{reco} is opened in the browser while the flask
@@ -37,6 +45,7 @@ def load_data():
 @app.route("/<bookno>")
 def display_web(bookno):
     html =  '<html> <head><style>{margin: 0;}#title{text-align: center;font-size: 2rem;padding: 1rem;}#story{text-align: center;}</style> <title>'+ (stories[bookno]['Title']) +"</title> </head> <body> <p id='title'>"+(stories[bookno]['Title'])+"</p><p id='story'>" +(stories[bookno]['content']).replace('\n','<br>')+ "</p><br><p>Recomended to read</p>"#</body> </html>"
+    create_log('Displaying the story with '+stories[bookno]['Title']+' title in the browser with its recommendations.')
     for reco in recos[bookno]:
         link = f'http://127.0.0.1:5000/{reco}'
         html += f'<a href={link}>'+stories[reco]['Title']+'</a><br>'
@@ -52,12 +61,14 @@ def display_story(category):
         if(stories[i]['Category'] == category):
             titles.append(stories[i]['Title'])
     i = 0
+    create_log(f'Displaying the story titles present in {category} category.')
     print('Choose a story -')
     for title in titles:
         print(f'{i} - {title}')
         i += 1
     title_selected = int(input())
     title_selected = titles[title_selected]
+    create_log(f'Chosen title of the story is {title_selected}.')
     print()
     print(title_selected, 'right away!')
     bookno = ''
@@ -89,16 +100,17 @@ def display_story(category):
 def main():
     load_data()
     print('Choose the category of story which you want to read...')
+    create_log('Displaying the different categories.')
     i = 0
     for cat in categories:
         print(f'{i} - {cat}')
         i += 1
     category_choosed = int(input())
     category_choosed = categories[category_choosed]
+    create_log(f'Chosen category is {category_choosed}.')
     print()
     print(category_choosed, 'it is !')
     display_story(category_choosed)
-    
 
 
 main()

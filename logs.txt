@@ -1,26 +1,17 @@
-2022-08-19 19:44:05.202599	Main function starts executing
-2022-08-19 19:44:05.202860	Reading dataset starts.
-2022-08-19 19:44:09.262647	Reading dataset ends.
-2022-08-19 19:44:09.293334	Creating a object of TfidfVectorizer with stopwords starts.
-2022-08-19 19:44:09.294175	Creating a object of TfidfVectorizer with stopwords ends.
-2022-08-19 19:44:09.294748	Running vectorizer.fit starts.
-2022-08-19 19:44:43.022415	Running vectorizer.fit ends.
-2022-08-19 19:44:43.023735	Running vectorizer.transform starts.
-2022-08-19 19:45:09.800032	Running vectorizer.transform ends.
-2022-08-19 19:45:09.800983	Running cosine_similarity starts.
-2022-08-19 19:45:50.004305	Running cosine_similarity ends.
-2022-08-19 19:45:50.206653	Main function ends executing
-
-2022-08-20 19:43:20.363817	Main function starts executing
-2022-08-20 19:43:20.364108	Reading dataset starts.
-2022-08-20 19:43:44.932813	Reading dataset ends.
-2022-08-20 19:43:44.933073	Creating a object of TfidfVectorizer with stopwords starts.
-2022-08-20 19:43:44.933330	Creating a object of TfidfVectorizer with stopwords ends.
-2022-08-20 19:43:44.933570	Running vectorizer.fit starts.
-2022-08-20 19:44:10.374984	Running vectorizer.fit ends.
-2022-08-20 19:44:10.375315	Running vectorizer.transform starts.
-2022-08-20 19:44:38.216502	Running vectorizer.transform ends.
-2022-08-20 19:44:38.216754	Running cosine_similarity starts.
-2022-08-20 19:44:42.476650	Running cosine_similarity ends.
-2022-08-20 19:44:42.476898	Main function ends executing
-
+2022-09-11 13:40:01.682581	Displaying the story with  International Short Stories: French title in the browser with its recommendations.
+2022-09-11 13:40:17.535494	Loading the data.
+2022-09-11 13:40:17.573781	Done loading the data.
+2022-09-11 13:40:17.574358	Displaying the different categories.
+2022-09-11 13:40:19.597825	Chosen category is Horror.
+2022-09-11 13:40:19.599825	Displaying the story titles present in Horror category.
+2022-09-11 13:40:21.524796	Chosen title of the story is  The Damned Thing.
+2022-09-11 13:40:22.127941	Displaying the story with  The Damned Thing title in the browser with its recommendations.
+2022-09-11 13:40:27.088591	Displaying the story with  Twice Told Tales title in the browser with its recommendations.
+2022-09-11 13:40:32.613719	Displaying the story with  Mosses from an Old Manse and Other Stories title in the browser with its recommendations.
+2022-09-11 13:41:10.012517	Loading the data.
+2022-09-11 13:41:10.288497	Done loading the data.
+2022-09-11 13:41:10.288998	Displaying the different categories.
+2022-09-11 13:41:10.881786	Chosen category is Childrens Fiction.
+2022-09-11 13:41:10.883915	Displaying the story titles present in Childrens Fiction category.
+2022-09-11 13:41:12.106696	Chosen title of the story is  Mother West Wind's Animal Friends.
+2022-09-11 13:41:15.206707	Displaying the story with  Mother West Wind's Animal Friends title in the browser with its recommendations.
