@@ -2,7 +2,7 @@
 
 - This project is based on the short stories from [1002-short-stories](https://www.kaggle.com/datasets/shubchat/1002-short-stories-from-project-guttenberg?resource=download) dataset which are taken from [Project Gutenberg](https://www.gutenberg.org/).
 
-- The processing part can be found in the short-story-classification.ipynb or in the [Kaggle](https://www.kaggle.com/code/sandeepcodes/short-stories-classification/notebook).
+- The processing part can be found in the [short-stories-classification.ipynb](https://github.com/SandeepUrankar/LetMeTellYouAStory/blob/main/short-stories-classification.ipynb) or in the [Kaggle](https://www.kaggle.com/code/sandeepcodes/short-stories-classification/notebook).
 
 - Clone this repository by running the command -
 
